@@ -15,6 +15,7 @@ public class DragnDrop : MonoBehaviour {
         isMouseDrag =  false;
     }
 
+    // Returns object that was clicked on
     GameObject ReturnClickedObject() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
@@ -31,6 +32,7 @@ public class DragnDrop : MonoBehaviour {
     }
 
     void Update() {
+        // Picks up a ship
         if (Input.GetMouseButtonDown(0)) {
             target = ReturnClickedObject();
             if (target != null) {
@@ -40,11 +42,12 @@ public class DragnDrop : MonoBehaviour {
             }
         }
  
-
- 
+        // Drags the ship to the mouse position
         if (isMouseDrag) {
             Vector3 currentScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenSpace) + offset;
+
+            // Adjusts ship position, to fit the cells
             if (target.GetComponent<shipBehavior>().shipLength % 2 == 0) {
                 target.transform.position = onGridPosition(currentPosition) + new Vector3(0, -0.5f, 0);
                 if (target.GetComponent<shipBehavior>().isVertical == false) {
@@ -54,7 +57,7 @@ public class DragnDrop : MonoBehaviour {
                 target.transform.position = onGridPosition(currentPosition);
             }
 
-            // Rotation
+            // Rotates the ship when right mouse button is clicked
             if (Input.GetMouseButtonDown(1)) {
                 target.transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
                 if (target.GetComponent<shipBehavior>().isVertical == true) {
@@ -63,6 +66,8 @@ public class DragnDrop : MonoBehaviour {
                     target.GetComponent<shipBehavior>().isVertical = true;
                 }
             }
+
+            // Places selected ship
             if (Input.GetMouseButtonUp(0)) {
                 target.GetComponent<shipBehavior>().saveShipPos();
                 isMouseDrag = false;

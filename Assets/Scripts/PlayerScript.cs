@@ -52,7 +52,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void placeOneShip(Ship ship, Vector3 positionShift) {
         foreach(Tile tile in ship.positions) {
-            Instantiate(shipPlaceholderPrefab, tile.coordinates + positionShift, Quaternion.identity);
+            Instantiate(shipPlaceholderPrefab, tile.coordinates + positionShift, Quaternion.identity, gameObject.transform);
         }
     }
 

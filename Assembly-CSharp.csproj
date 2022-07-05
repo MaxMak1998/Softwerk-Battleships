@@ -36,17 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\SimpleGridShader\DistanceScaling.cs" />
-     <Compile Include="Assets\Scripts\DragnDrop.cs" />
-     <Compile Include="Assets\Scripts\BattlefieldScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-     <Compile Include="Assets\Scripts\Classes\Tile.cs" />
-     <Compile Include="Assets\Scripts\Classes\Ship.cs" />
-     <Compile Include="Assets\Scripts\shipBehavior.cs" />
-     <Compile Include="Assets\Scripts\GameControllerScript.cs" />
-     <Compile Include="Assets\Scripts\Classes\Player.cs" />
-     <Compile Include="Assets\Scripts\CombatControllerScript.cs" />
      <None Include="Assets\SimpleGridShader\README.txt" />
      <None Include="Assets\SimpleGridShader\GridShader.shader" />
      <None Include="Assets\Terrain Tile Hex Samples\readme_tile_hex_samples.txt" />
@@ -718,6 +708,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GameAssembly.csproj">
+      <Project>{50361333-74cd-7b94-d613-02f8577b293d}</Project>
+      <Name>GameAssembly</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
