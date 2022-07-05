@@ -15,23 +15,24 @@ public class BattlefieldScript : MonoBehaviour {
             currentPlayer = GameObject.Find("Player2Object");
             currentPlayer.GetComponent<PlayerScript>().setPlayerName(PlayerPrefs.GetString("p2"));
         }
+        Debug.Log("Current Player: " + currentPlayer.GetComponent<PlayerScript>().getPlayerName());
     }
 
-    void savePlayerShips() {
+    public void savePlayerShips() {
         GameObject[] allShips = GameObject.FindGameObjectsWithTag("Ship");
         foreach (GameObject ship in allShips) {
             List<Tile> listOfTiles = new List<Tile>();
             foreach (Vector3 pos in ship.GetComponent<shipBehavior>().occupiedCells){
                 listOfTiles.Add(new Tile(pos));
             }
-            Ship newShip = new Ship(ship.name, listOfTiles);
+            Ship newShip = new Ship(ship.name, listOfTiles, ship.transform.position, ship.transform.rotation.z);
             currentPlayer.GetComponent<PlayerScript>().addShip(newShip);
         }
         if (playerCounter == 1) {
             PlayerPrefs.SetInt("counter", 2);
             SceneManager.LoadScene("Setup");
         }else {
-            //  Load Battle Scene!!!
+            SceneManager.LoadScene("Battle");
         }
         
     }

@@ -36,16 +36,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\ButtonScript.cs" />
+     <Compile Include="Assets\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\SimpleGridShader\DistanceScaling.cs" />
      <Compile Include="Assets\Scripts\DragnDrop.cs" />
-     <Compile Include="Assets\BattlefieldScript.cs" />
+     <Compile Include="Assets\Scripts\BattlefieldScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\Classes\Tile.cs" />
      <Compile Include="Assets\Scripts\Classes\Ship.cs" />
      <Compile Include="Assets\Scripts\shipBehavior.cs" />
      <Compile Include="Assets\Scripts\GameControllerScript.cs" />
      <Compile Include="Assets\Scripts\Classes\Player.cs" />
-     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-     <Compile Include="Assets\Scripts\Classes\Tile.cs" />
+     <Compile Include="Assets\Scripts\CombatControllerScript.cs" />
      <None Include="Assets\SimpleGridShader\README.txt" />
      <None Include="Assets\SimpleGridShader\GridShader.shader" />
      <None Include="Assets\Terrain Tile Hex Samples\readme_tile_hex_samples.txt" />

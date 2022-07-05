@@ -8,7 +8,6 @@ public class ButtonScript : MonoBehaviour {
     public GameObject nameSelectPopup;
     public Button newGameButton;
     public Button startGameButton;
-    // public Button cancelButton;
     public InputField player1name;
     public InputField player2name;
 
@@ -26,7 +25,6 @@ public class ButtonScript : MonoBehaviour {
     }
 
     public void startGame() {
-        Debug.Log("Pretend the Game has Started!!!");
         PlayerPrefs.SetString("p1", player1name.text);
         PlayerPrefs.SetString("p2", player2name.text);
         PlayerPrefs.SetInt("counter", 1);
@@ -38,7 +36,7 @@ public class ButtonScript : MonoBehaviour {
         newGameButton.interactable = true;
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (player1name.text.Length > 0 && player2name.text.Length > 0) {
             startGameButton.interactable = true;
         }else {

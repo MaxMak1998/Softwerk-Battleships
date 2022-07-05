@@ -8,18 +8,9 @@ public class GameControllerScript : MonoBehaviour {
     [SerializeField] private Camera cam;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private Button button;
-    private GameObject currentPlayer;
-    private int playerCounter;
 
     void Start() {
-        playerCounter = PlayerPrefs.GetInt("counter");
-        if (playerCounter == 1) {
-            currentPlayer = GameObject.Find("Player1Object");
-            currentPlayer.GetComponent<PlayerScript>().setPlayerName(PlayerPrefs.GetString("p1"));
-        }else {
-            currentPlayer = GameObject.Find("Player2Object");
-            currentPlayer.GetComponent<PlayerScript>().setPlayerName(PlayerPrefs.GetString("p2"));
-        }
+        
     }
 
     Vector3 getCellPos() {
@@ -47,7 +38,7 @@ public class GameControllerScript : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            getCellPos();
+            // getCellPos();
         }
     }
 }
